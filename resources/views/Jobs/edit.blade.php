@@ -23,43 +23,35 @@
       <div class="border-b border-gray-900/10 pb-12">
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-4">
-            <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
+            <x-form-label for="title">Title</x-form-label>
             <div class="mt-2">
-              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                <input
-                type="text"
-                name="title"
-                id="title"
-                class="block flex-1 border-0 bg-transparent py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                placeholder="Shelf dealer"
-                value="{{ $job->title}}"
-                required
-                >
-              </div>
+            <x-form-input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Shelf dealer"
+            value="{{ $job->title}}"
+            required
+            />
             </div>
-            @error('title')
-            <p class="text-red-500 text-sm font-semibold mt-1">{{ $message }}</p>
-            @enderror
+            </div>
+            <x-form-error name="title"/>
 
           </div>
           <div class="sm:col-span-4">
-            <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
+            <x-form-label for="salary">Salary</x-form-label>
             <div class="mt-2">
-              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                <input
+                <x-form-input
                 type="text"
                 name="salary"
                 id="salary"
-                class="block flex-1 border-0 bg-transparent py-1.5 px-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="$50,000"
                 value="{{ $job->salary }}"
                 required
-                >
+               />
               </div>
             </div>
-            @error('salary')
-            <p class="text-red-500 text-sm font-semibold mt-1">{{ $message }}</p>
-            @enderror
+            <x-form-error name="salary"/>
           </div>
         </div>
 
@@ -71,7 +63,4 @@
     </div>
   </form>
 </x-layout>
-<form method="POST" action="/jobs/{{ $job->id }}" class="hidden" id="delete-form" >
-    @csrf
-    @method('DELETE')
-</form>
+
