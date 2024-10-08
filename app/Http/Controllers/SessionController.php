@@ -10,6 +10,6 @@ class SessionController extends Controller
         return view('auth.login');
     }
     public function store(){
-        //
+        dd('Hey! I love Jesus Christ with all my soul, body and spirit');
     }
 }

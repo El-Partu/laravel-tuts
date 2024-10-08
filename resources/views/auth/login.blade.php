@@ -2,7 +2,7 @@
     <x-slot:heading>
         <h1 class="font-bold text-4xl">Login</h1>
     </x-slot:heading>
-<form method="POST" action="/register">
+<form method="POST" action="/login">
     @csrf
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">

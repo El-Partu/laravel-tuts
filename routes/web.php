@@ -28,3 +28,4 @@ Route::post('/register',[RegisterUserController::class, 'store']);
 //login
 
 Route::get('/login',[SessionController::class, 'create']);
+Route::post('/login',[SessionController::class, 'store']);

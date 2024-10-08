@@ -40,7 +40,7 @@
             <!-- Profile dropdown -->
             <div class="relative ml-3">
               <div>
-                <x-nav-link href="/login" :active="request()->is('register')">Register</x-nav-link>
+                <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
               </div>
 
 
