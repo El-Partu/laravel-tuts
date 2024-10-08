@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 
@@ -18,3 +20,11 @@ Route::view('/','home');
 Route::resource('jobs', JobController::class);
 Route::view('/contact', 'contact');
 //All Jobs
+
+//sign up
+Route::get('/register',[RegisterUserController::class, 'create']);
+Route::post('/register',[RegisterUserController::class, 'store']);
+
+//login
+
+Route::get('/login',[SessionController::class, 'create']);
