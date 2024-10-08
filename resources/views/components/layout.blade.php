@@ -33,19 +33,19 @@
           </div>
         </div>
         <div class="hidden md:block">
-          <div class="ml-4 flex items-center md:ml-6">
+          <div class="ml-4 flex items-center md:ml-6 justify-between w-full">
 
-            <x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link>
-
-            <!-- Profile dropdown -->
-            <div class="relative ml-3">
-              <div>
-                <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
-              </div>
-
-
-
+            @guest
+            <div>
+                <x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link>
             </div>
+            <div>
+                <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
+            </div>
+            @endguest
+
+
+
           </div>
         </div>
 
