@@ -20,7 +20,7 @@ $validatedAtributes = $request->validate([
         //attempt to login in user
         if(!Auth::attempt($validatedAtributes)){
             throw ValidationException::withMessages(messages: [
-                'password'=>'Email or password incorrect'
+                'password'=>'Invalid email or password.'
             ]);
         }
         //generate new session token

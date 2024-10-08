@@ -15,7 +15,7 @@
                 type="email"
                 name="email"
                 id="email"
-                value="{{ old('email') }}"
+                :value=" old('email') "
                 required
                />
             </div>
@@ -28,7 +28,7 @@
                 type="password"
                 name="password"
                 id="password"
-                value="{{ old('password') }}"
+                :value=" old('password') "
                 required
                />
             </div>
