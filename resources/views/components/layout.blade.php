@@ -44,9 +44,10 @@
             </div>
             @endguest
             @auth
-                <form method="POST" action="/logout" class="hidden">
+                <form method="POST" action="/logout" class="hidden" id="logout">
+                    @csrf
                 </form>
-                <x-form-button>Log out</x-form-button>
+                <x-form-button form="logout">Log out</x-form-button>
             @endauth
           </div>
         </div>

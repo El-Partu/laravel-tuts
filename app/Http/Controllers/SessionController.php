@@ -4,16 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
     public function create(){
         return view('auth.login');
     }
-    public function store(){
-        dd('Hey! I love Jesus Christ with all my soul, body and spirit');
+    public function store(Request $request){
+        //validate
+$validatedAtributes = $request->validate([
+    'email'=> ['required','email'],
+    'password'=> ['required'],
+]);
+        //attempt to login in user
+        if(!Auth::attempt($validatedAtributes)){
+            throw ValidationException::withMessages(messages: [
+                'password'=>'Email or password incorrect'
+            ]);
+        }
+        //generate new session token
+        $request->session()->regenerate();
+        //redirect user
+        return redirect('/jobs');
     }
     public function destroy(){
         Auth::logout();
+        return redirect('/');
     }
 }
