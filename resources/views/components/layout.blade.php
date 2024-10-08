@@ -32,7 +32,7 @@
             </div>
           </div>
         </div>
-        <div class="hidden md:block">
+        <div class=" md:block">
           <div class="ml-4 flex items-center md:ml-6 justify-between w-full">
 
             @guest
