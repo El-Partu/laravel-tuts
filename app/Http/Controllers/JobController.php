@@ -26,8 +26,13 @@ class JobController extends Controller
             return redirect('/login');
         }
 
+        //can or cannot authorization
+    //    if( Auth::user()->can('edit-job', $job)){
+    //         //
+    //    };
 
-        Gate::authorize('edit-job', $job); //allows or denies
+
+        // Gate::authorize('edit-job', $job); //allows or denies
         // if($job->employer->user->isNot(Auth::user())){
         //     abort(403,'You cannot edit this job.');
         // }
