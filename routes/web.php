@@ -14,7 +14,7 @@ Route::view('/','home');
 //     Route::post('/jobs', 'store');
 //     Route::get('/jobs/{job}/edit',  'edit');
 //     Route::patch('/jobs/{job}', 'update');
-//     Route::delete('/jobs/{job}', 'delete');
+//     Route::delete('/jobs/{job}', 'destroy');
 // });
 Route::resource('jobs', JobController::class);
 Route::view('/contact', 'contact');
