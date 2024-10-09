@@ -51,7 +51,7 @@ class User extends Authenticatable
     public function post(){
         return $this->hasMany(Post::class);
     }
-        // public function employer(){
-        // return $this->hasMany(Employer::class);
-        // }
+        public function employers(){
+        return $this->hasMany(Employer::class);
+        }
 }
