@@ -13,16 +13,16 @@ class SessionController extends Controller
     }
     public function store(Request $request){
         //validate
-$validatedAtributes = $request->validate([
-    'email'=> ['required','email'],
-    'password'=> ['required'],
-]);
+    $validatedAtributes = $request->validate([
+        'email'=> ['required','email'],
+        'password'=> ['required'],
+    ]);
         //attempt to login in user
-        if(!Auth::attempt($validatedAtributes)){
-            throw ValidationException::withMessages(messages: [
-                'password'=>'Invalid email or password.'
-            ]);
-        }
+    if(!Auth::attempt($validatedAtributes)){
+        throw ValidationException::withMessages(messages: [
+            'password'=>'Invalid email or password.'
+        ]);
+    }
         //generate new session token
         $request->session()->regenerate();
         //redirect user

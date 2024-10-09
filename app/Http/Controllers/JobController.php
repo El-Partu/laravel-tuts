@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employer;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,9 +23,9 @@ class JobController extends Controller
     }
 
     public function edit(Job $job){
-        if(Auth::guest()){
-            return redirect('/login');
-        }
+        // if(Auth::guest()){
+        //     return redirect('/login');
+        // }
 
         //can or cannot authorization
     //    if( Auth::user()->can('edit-job', $job)){
@@ -77,10 +78,17 @@ return redirect('/jobs/'.$job->id);
             'salary'=>['required'],
                 ]);
 
+                $user = Auth::user();
+                $employer = Employer::create([
+                    'user_id'=>$user->id,
+                    'name'=> $user->name,
+                ]);
+
+
               Job::create([
                 'title'=> request('title'),
                 'salary'=>request('salary'),
-                'employer_id'=>1,
+                'employer_id'=>$employer->id,
               ]);
 
               return redirect('/jobs');
