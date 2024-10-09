@@ -5,8 +5,12 @@ use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/','home');
 
+Route::view('/','home');
+// Route::get("/test", function(){
+//     Mail::to("laurentpartu@gmail.com")->send(new JobPosted());
+//     return "Done";
+// });
 Route::controller(JobController::class)->group(function(){
     Route::get('/jobs',  'index');
     Route::get('/jobs/create', 'create')->middleware('auth');

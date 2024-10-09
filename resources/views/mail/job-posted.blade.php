@@ -1,12 +1,5 @@
-<x-mail::message>
-# Introduction
-
-The body of your message.
-
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
-
-Thanks,<br>
-{{ config('app.name') }}
-</x-mail::message>
+<h1>{{ $job->title }}</h1>
+<p>Congratulation your job is now live on our website.</p>
+<p>
+    <a href="{{ url('/jobs/'.$job->id) }}">Click to view your job</a>
+</p>

@@ -17,9 +17,9 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
-        Gate::define('edit-job',function( User $user, $job){
-            return $job->employer->user->is($user);
-        });
+        // Gate::define('edit-job',function( User $user, $job){
+        //     return $job->employer->user->is($user);
+        // });
     }
 
     /**
